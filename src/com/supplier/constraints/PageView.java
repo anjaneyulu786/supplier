@@ -4,4 +4,6 @@ public interface PageView {
 
 	String INDEX = "index";
 	
+	String LOGIN = "login";
+	
 }
