@@ -1,0 +1,96 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.3.xsd	
+	http://www.springframework.org/schema/mvc
+	http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+	http://www.springframework.org/schema/task
+    http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+	
+	
+	
+	<context:component-scan base-package="com.supplier.controller,com.supplier.util,com.supplier.dao,com.supplier.cache,com.supplier.websocket" />
+	<mvc:annotation-driven />
+	<mvc:resources mapping="/**" location="/" />
+
+	<task:annotation-driven executor="asyncExecutor"/>
+    <task:executor id="asyncExecutor" pool-size="5" />
+		
+	<bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/supplierdb"/>
+        <property name="username" value="root"/>
+        <property name="password" value="welcome"/>
+    </bean>
+	
+	<!-- <bean id="dataSource" destroy-method="close" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+		<property name="url" value="jdbc:mysql://52.36.250.121:3306/buyremodb" />
+		<property name="username" value="root" />
+		<property name="password" value="Edvenswa2016" />
+	</bean> -->
+ 	
+	<bean class="org.springframework.mail.javamail.JavaMailSenderImpl"/>
+	
+	<bean id="contentNegotiationManager"  class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+			<map>
+				<entry key="json" value="application/json" />
+				<entry key="xml" value="application/xml" />
+				<entry key="rss" value="application/rss+xml" />
+			</map>
+		</property>
+		<property name="ignoreAcceptHeader" value="true"> </property>
+    </bean>
+    
+	<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+		<property name="order" value="1" />
+		 <property name="contentNegotiationManager" ref="contentNegotiationManager"></property>
+		<property name="defaultViews">
+			<list>
+				<!-- JSON View -->
+				<bean
+					class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<!-- If no extension matched, use JSP view -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="order" value="3" />
+		<property name="prefix">
+			<value>/WEB-INF/pages/</value>
+		</property>
+		<property name="suffix">
+			<value>.jsp</value>
+		</property>
+	</bean>
+	
+	<bean id="viewResolver"	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="order" value="2" />
+		<property name="viewClass">
+			<value>
+				org.springframework.web.servlet.view.tiles3.TilesView
+			</value>
+		</property>
+	</bean>
+	
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
+      <property name="maxUploadSize" value="3145728" />
+    </bean>
+ 
+ </beans>
