@@ -6,4 +6,9 @@ public interface PageView {
 	
 	String LOGIN = "login";
 	
+	String SIGNUP = "signUp";
+	
+	String MENU = "menu";
+	
+	String ORDERS = "orders";
 }

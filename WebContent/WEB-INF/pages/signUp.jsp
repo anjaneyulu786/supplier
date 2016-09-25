@@ -51,29 +51,34 @@
                 <div class="col-md-4 col-md-offset-4">
                     <div class="account-box">
 
-                        <form role="form">
+                        <form role="form" action="" method = "POST">
                             <div class="form-group">
-                                <a href="#" class="pull-right label-forgot">Forgot email?</a>
-                                <label for="inputUsernameEmail">Username or email</label>
+                                <label for="inputUsernameEmail">User Name</label>
                                 <input type="text" id="inputUsernameEmail" name="userName" class="form-control">
                             </div>
                             <div class="form-group">
-                                <a href="#" class="pull-right label-forgot">Forgot password?</a>
+                                <label for="inputPassword">Mobile Number</label>
+                                <input type="text" id="inputMobileNo" name="mobileNumber" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputPassword">Location</label>
+                                <input type="text" id="inputPassword" name="location" class="form-control">
+                            </div>
+                            <div class="form-group">
                                 <label for="inputPassword">Password</label>
                                 <input type="password" id="inputPassword" name="password" class="form-control">
                             </div>
-                            <div class="checkbox pull-left">
-                                <label>
-                                    <input type="checkbox">Remember me</label>
+                            <div class="form-group">
+                                <label for="inputPassword">Confirm Password</label>
+                                <input type="password" id="inputPassword" name="confirmPassword" class="form-control">
                             </div>
                             <button class="btn btn btn-primary pull-right" type="submit">
-                                Log In
+                                Sign Up
                             </button>
                         </form>
-                        <a class="forgotLnk" href="/index"></a>
                         <div class="or-box">
                           
-                            <center><span class="text-center login-with">Login or <b><a href="/signUp">Sign Up</a></b></span></center>
+                            <center><span class="text-center login-with">Sign Up or <b><a href="/login" >Login</a></b></span></center>
                             <!-- <div class="row">
                                 <div class="col-md-6 row-block">
                                     <a href="index.html" class="btn btn-facebook btn-block">
@@ -96,17 +101,11 @@
 
                             </div> -->
                         </div>
-                        <div class="row-block">
-                            <div class="row">
-                                <div class="col-md-12 row-block">
-                                    <a href="/signUp" class="btn btn-primary btn-block">Create New Account</a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
+
 
     </div>
     <div id="test1" class="gmap3"></div>

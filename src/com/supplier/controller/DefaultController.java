@@ -21,4 +21,19 @@ public class DefaultController {
 		return PageView.LOGIN;
 	}
 	
+	@RequestMapping(value = { "/signUp" })
+	public String signUp(ModelMap modelMap) {
+		return PageView.SIGNUP;
+	}
+	
+	@RequestMapping(value = { "/items" })
+	public String items(ModelMap modelMap) {
+		return PageView.MENU;
+	}
+	
+	@RequestMapping(value = { "/orders" })
+	public String orders(ModelMap modelMap) {
+		return PageView.ORDERS;
+	}
+	
 }

@@ -155,7 +155,7 @@ iframe, embed, object {
 }
 .img-responsive-media {
     display: block;
-    height: auto;
+    height: 400px;
     width: 100%;
 }
 /**
