@@ -13,7 +13,7 @@ public class DefaultController {
 	
 	@RequestMapping(value = { "/", "/index" })
 	public String index(ModelMap modelMap) {
-		return PageView.INDEX;		
+		return PageView.MENU;		
 	}
 	
 	@RequestMapping(value = { "/login" })
@@ -31,8 +31,8 @@ public class DefaultController {
 		return PageView.MENU;
 	}
 	
-	@RequestMapping(value = { "/orders" })
-	public String orders(ModelMap modelMap) {
+	@RequestMapping(value = { "/placeOrder" ,"/orders"})
+	public String placeOrder(ModelMap modelMap) {
 		return PageView.ORDERS;
 	}
 	

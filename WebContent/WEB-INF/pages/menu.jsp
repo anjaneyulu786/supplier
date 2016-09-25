@@ -153,21 +153,12 @@
 
                             </a>
                         </li>
-                        <!-- <li>
-                            <a class="tooltip-tip ajax-load" href="" title="Mail">
+                        <li>
+                            <a class="tooltip-tip ajax-load" href="/orders" title="Mail">
                                 <i class="icon-mail"></i>
-                                <span>mail</span>
-                                <div class="noft-blue">289</div>
+                                <span>Orders</span>
                             </a>
                         </li>
-
-                        <li>
-                            <a class="tooltip-tip ajax-load" href="icon.html" title="Icons">
-                                <i class="icon-preview"></i>
-                                <span>Icons</span>
-                                <div class="noft-blue" style="display: inline-block; float: none;">New</div>
-                            </a>
-                        </li> -->
                     </ul>
                 </div>
             </div>
@@ -501,7 +492,7 @@
                                     </form>
                                     
                                 </div>
-								<button class="btn btn-danger" type="submit">Place Order</button>
+								<a href="/placeOrder" class="btn btn-danger" type="submit">Place Order</a>
                             </div>
                         </div>
                     </div>
